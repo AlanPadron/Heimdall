@@ -1,49 +1,49 @@
-# Heimdall: Enterprise Observability & Attack Detection Engine By Alan Padron 2026
+# Heimdall: Enterprise Observability & Attack Detection Engine By Alan Padron
 **Version:** 1.8 Beta (Attack Detector Update)
 
-Heimdall es un motor de monitoreo de alta disponibilidad diseñado para la ingesta masiva de métricas, análisis estadístico de anomalías y detección de vectores de ataque en tiempo real. Esta versión se centra en la resiliencia del sistema ante condiciones de estrés extremo y la soberanía de los datos mediante logs de auditoría locales.
+Heimdall is a high-availability monitoring engine designed for massive metric ingestion, statistical anomaly analysis, and real-time attack vector detection. This version focuses on system resilience under extreme stress conditions and data sovereignty through local audit logging.
 
 ---
 
-## 🚀 Release Highlights: v1.8 Attack Detector Update
+## Technical Specifications: v1.8 Attack Detector Update
 
-Esta actualización transforma el motor en una herramienta de seguridad activa con las siguientes capacidades:
+This update transitions the engine into an active security tool with the following capabilities:
 
-* **Soberanía de Datos (In-House Logging):** Implementación de un sistema de auditoría local que elimina la dependencia de servicios externos, garantizando la privacidad corporativa.
-* **Resiliencia DDoS:** Motor optimizado mediante procesos asíncronos para manejar ráfagas superiores a 2,000 RPS (Requests Per Second).
-* **Detección de Anomalías Local:** Algoritmo de análisis estadístico (Z-Score) integrado para la clasificación inmediata de estados: `NORMAL`, `WARNING` y `CRITICAL`.
-* **Multi-tenant Audit Logs:** Registro de auditoría con segregación por servicio y priorización visual mediante códigos de color ANSI para una respuesta rápida del equipo DevOps.
-
----
-
-## 🛠 Technical Stack
-
-* **Protocolo:** gRPC (Protocol Buffers) para comunicación de ultra-baja latencia.
-* **Lenguaje:** Python 3.12+ (Asyncio stack).
-* **Base de Datos:** TimescaleDB (PostgreSQL optimizado para series temporales).
-* **Infraestructura:** Docker & Docker Compose para despliegue escalable.
-* **Visualización:** Grafana Enterprise para dashboards de observabilidad.
+* **Data Sovereignty (In-House Logging):** Implementation of a local audit system that eliminates dependency on external services, ensuring corporate privacy and compliance.
+* **DDoS Resilience:** Engine optimized via asynchronous processes to handle bursts exceeding 2,000 RPS (Requests Per Second).
+* **Local Anomaly Detection:** Integrated Z-Score statistical analysis for immediate state classification: `NORMAL`, `WARNING`, and `CRITICAL`.
+* **Multi-tenant Audit Logs:** Audit logs with service-level segregation and visual prioritization via ANSI color codes for rapid DevOps response.
 
 ---
 
-## 🧪 Infrastructure Analysis & Security Testing
+## Technical Stack
 
-Para validar la estabilidad de la versión 1.8, el sistema ha sido sometido a los siguientes protocolos de estrés:
+* **Protocol:** gRPC (Protocol Buffers) for ultra-low latency communication.
+* **Language:** Python 3.12+ (Asyncio stack).
+* **Database:** TimescaleDB (PostgreSQL optimized for time-series).
+* **Infrastructure:** Docker & Docker Compose for scalable deployment.
+* **Visualization:** Grafana Enterprise for observability dashboards.
 
-### 1. Simulación de Ataque Volumétrico (DDoS)
-Se ejecutó una inundación de métricas (Metric Flooding) de 2,000 peticiones concurrentes sobre el componente `EDGE-LOAD-BALANCER`. El motor mantuvo la integridad operativa y clasificó el 100% de la carga como crítica de forma instantánea.
+---
+
+## Infrastructure Analysis & Security Testing
+
+To validate the stability of version 1.8, the system was subjected to the following stress protocols:
+
+### 1. Volumetric Attack Simulation (DDoS)
+A Metric Flooding attack of 2,000 concurrent requests was executed against the `EDGE-LOAD-BALANCER` component. The engine maintained operational integrity and classified 100% of the load as critical instantaneously.
 
 ### 2. High-Density Stress Test (70% Anomaly Injection)
-Evaluación de throughput bajo saturación de CPU, inyectando una carga donde el 70% de los datos representaban desviaciones críticas. Se validó la eficiencia de la escritura en TimescaleDB y la generación de logs en tiempo real.
+Throughput evaluation under CPU saturation, injecting a load where 70% of data represented critical deviations. Validated TimescaleDB write efficiency and real-time log generation.
 
 ### 3. Context Isolation Test
-Validación de la lógica de negocio procesando múltiples microservicios (`AUTH-API`, `CORE-DB`, `PAYMENT-GATEWAY`) de forma simultánea, asegurando que el motor mantiene líneas base estadísticas independientes por cada servicio.
+Validation of business logic by processing multiple microservices (`AUTH-API`, `CORE-DB`, `PAYMENT-GATEWAY`) simultaneously, ensuring the engine maintains independent statistical baselines for each service.
 
 ---
 
-## 📊 Audit System Output
+## Audit System Output
 
-El sistema de auditoría interna genera reportes de estado inmediatos y visuales directamente en el flujo del contenedor:
+The internal audit system generates immediate visual status reports directly within the container stream:
 
 ```text
 2026-02-09 20:25:01 | [NORMAL]   - AUTH-API - Value: 42.0 - Status: Healthy
