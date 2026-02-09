@@ -1,0 +1,8 @@
+cat <<EOF > .gitignore
+__pycache__/
+*.pyc
+venv/
+.env
+.pytest_cache/
+db_data/
+EOF
