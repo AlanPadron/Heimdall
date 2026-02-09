@@ -1,4 +1,4 @@
-# Heimdall: Intelligent Monitoring & Anomaly Detection
+# Heimdall: Intelligent Monitoring & Anomaly Detection (Beta 1.0.2) By Alan Padron
 
 Heimdall is a distributed monitoring system designed to detect behavioral deviations in real-time metrics. It uses a microservices architecture to process data via gRPC and applies statistical analysis to identify anomalies.
 
