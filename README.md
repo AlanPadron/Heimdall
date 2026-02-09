@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="docs/logo.png" alt="Heimdall Logo" width="200">
+</p>
+
+# Heimdall: Enterprise Observability & Attack Detection Engine
+
+
 # Heimdall: Enterprise Observability & Attack Detection Engine By Alan Padron
 **Version:** 1.8 Beta (Attack Detector Update)
 
