@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  timescaledb:
+    image: timescale/timescaledb:latest-pg15
+    container_name: heimdall_db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=heimdall
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: heimdall_cache
+    ports:
+      - "6380:6379"
+    restart: always
+
+  engine:
+    build: .
+    container_name: heimdall_engine
+    depends_on:
+      - timescaledb
+      - redis
+    environment:
+      - PYTHONPATH=/app
+      - DATABASE_URL=postgresql+asyncpg://admin:secret@timescaledb/heimdall
+      - REDIS_URL=redis://redis:6379/0
+    ports:
+      - "8000:8000"
+      - "50051:50051"
+    volumes:
+      - .:/app
+
+volumes:
+  postgres_data:

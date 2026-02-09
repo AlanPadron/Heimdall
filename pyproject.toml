@@ -1,0 +1,26 @@
+[project]
+name = "heimdall-engine"
+version = "0.1.0"
+description = "High-performance observability and anomaly detection engine"
+authors = [{ name = "Tu Nombre", email = "tu@email.com" }]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.27.0",
+    "pydantic-settings>=2.1.0",
+    "sqlalchemy[asyncio]>=2.0.25",
+    "asyncpg>=0.29.0",
+    "grpclib>=0.4.7",
+    "protobuf>=4.25.0",
+    "structlog>=24.1.0", # Logging estructurado (Senior style)
+    "prometheus-client>=0.19.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+select = ["E", "F", "B", "I"] # Errores, Fallos, Bugbear (mejores prácticas), Isort
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
