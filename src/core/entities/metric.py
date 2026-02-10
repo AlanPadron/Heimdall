@@ -4,9 +4,9 @@ from uuid import UUID, uuid4
 from enum import Enum
 
 class MetricType(str, Enum):
-    COUNTER = "counter"    # Para cosas que solo suben (ej. total de peticiones)
-    GAUGE = "gauge"        # Para valores que suben y bajan (ej. uso de CPU)
-    HISTOGRAM = "histogram" # Para observar latencias
+    COUNTER = "counter"    # total de peticiones
+    GAUGE = "gauge"        # uso de CPU
+    HISTOGRAM = "histogram" #latencias
 
 @dataclass(frozen=True) # Frozen lo hace inmutable, procesamiento de flujos
 class MetricReading:
