@@ -6,10 +6,15 @@
 
 
 # Heimdall: Enterprise Observability & Attack Detection Engine By Alan Padron
-**Version:** 1.8 Beta (Attack Detector Update)
 
-Heimdall is a high-availability monitoring engine designed for massive metric ingestion, statistical anomaly analysis, and real-time attack vector detection. This version focuses on system resilience under extreme stress conditions and data sovereignty through local audit logging.
+# HEIMDALL: Observability & Identity Engine (Beta 1.8.1)
 
+I have integrated key functional layers to the project, enabling the system to operate in a distributed environment.
+
+### What was added in this version:
+* **Technician Detection System:** Added a networking layer. The engine now broadcasts live alerts to remote agents via TCP Sockets.
+* **Technician Management System:** Implemented an IAM module for security tokens. Provisioning or revoking access for technical personnel is now possible in real-time.
+* **Actionable Telemetry:** Refined alert format delivering forensic diagnostics and immediate mitigation steps.
 ---
 
 ## Technical Specifications: v1.8 Attack Detector Update
