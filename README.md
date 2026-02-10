@@ -2,9 +2,6 @@
   <img src="docs/logo.png" alt="Heimdall Logo" width="200">
 </p>
 
-# Heimdall: Enterprise Observability & Attack Detection Engine
-
-
 # Heimdall: Enterprise Observability & Attack Detection Engine By Alan Padron
 
 # HEIMDALL: Observability & Identity Engine (Beta 1.8.1)
